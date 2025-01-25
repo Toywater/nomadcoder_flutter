@@ -1,6 +1,7 @@
 import 'package:challenge_assign11/constants/gaps.dart';
 import 'package:challenge_assign11/constants/sizes.dart';
 import 'package:challenge_assign11/models/create_user_model.dart';
+import 'package:challenge_assign11/screens/sent_code_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,6 +19,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _birthController = TextEditingController();
+
+  void onSignUpTab() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => SentCodeScreen(userInfo: widget._userInfo),
+    ));
+  }
 
   @override
   void initState() {
@@ -145,7 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             widthFactor: 1,
             child: CupertinoButton.filled(
               disabledColor: Colors.grey.shade400,
-              onPressed: () {},
+              onPressed: () => onSignUpTab(),
               child: Text("Sign up", style: TextStyle(fontSize: Sizes.size20, fontWeight: FontWeight.bold)),
             ),
           ),
