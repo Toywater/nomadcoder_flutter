@@ -4,9 +4,10 @@ import 'package:navigation_time_challenge12/constants/sizes.dart';
 import 'package:navigation_time_challenge12/models/post_model.dart';
 
 class ProfileName extends StatelessWidget {
-  const ProfileName({super.key, required this.postInfo});
+  const ProfileName({super.key, required this.postInfo, required this.ellipseClick});
 
   final PostModel postInfo;
+  final Function ellipseClick;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ProfileName extends StatelessWidget {
     if (postTime.isEmpty && difTime.inMinutes > 0) postTime = "$postTime${difTime.inMinutes}m";
 
     return Row(
-      spacing: Sizes.size5,
+      spacing: Sizes.size10,
       children: [
         // 이름
         Text(
@@ -36,7 +37,7 @@ class ProfileName extends StatelessWidget {
         Spacer(),
         // 포스팅 시간에서 현재 시간을 뺀다.
         Text(postTime, style: TextStyle(fontSize: Sizes.size16, color: Colors.grey)),
-        FaIcon(FontAwesomeIcons.ellipsis),
+        IconButton(onPressed: () => ellipseClick(), icon: FaIcon(FontAwesomeIcons.ellipsis)),
       ],
     );
   }
