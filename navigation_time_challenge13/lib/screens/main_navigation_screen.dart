@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:navigation_time_challenge12/constants/sizes.dart';
+import 'package:navigation_time_challenge12/screens/activity_screen.dart';
 import 'package:navigation_time_challenge12/screens/home_screen.dart';
+import 'package:navigation_time_challenge12/screens/search_screen.dart';
 import 'package:navigation_time_challenge12/widgets/nav_tap.dart';
 import 'package:navigation_time_challenge12/widgets/new_thread.dart';
 
@@ -81,7 +83,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
               ),
               Offstage(
                 offstage: _currentScreenIndex != 1,
-                child: Scaffold(),
+                child: SearchScreen(),
               ),
               Offstage(
                 offstage: _currentScreenIndex != 2,
@@ -89,7 +91,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
               ),
               Offstage(
                 offstage: _currentScreenIndex != 3,
-                child: Scaffold(),
+                child: ActivityScreen(),
               ),
               Offstage(
                 offstage: _currentScreenIndex != 4,
@@ -128,7 +130,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
                     onTap: () => _onTap(3),
                     icon: FontAwesomeIcons.heart,
                     isSelected: _currentScreenIndex == 3,
-                    text: "Heart",
+                    text: "Activity",
                   ),
                   NavTap(
                     onTap: () => _onTap(4),

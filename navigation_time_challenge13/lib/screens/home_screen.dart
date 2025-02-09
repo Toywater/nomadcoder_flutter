@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   void createTestData() {
     // sample
     PostModel tmpPost = PostModel();
-    tmpPost.avatarImage = NetworkImage("https://avatars.githubusercontent.com/u/114986775?v=4");
+    tmpPost.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
     tmpPost.userName = "똘배";
     tmpPost.postStr = "안성맞춤 비행 클럽. 2025년 새해 모임을 가졌습니다.";
     tmpPost.replies = 153;
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     // sample
     tmpPost = PostModel();
-    tmpPost.avatarImage = NetworkImage("https://avatars.githubusercontent.com/u/114986775?v=4");
+    tmpPost.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
     tmpPost.userName = "shityoushouldcareabout";
     tmpPost.postStr = "my phone feels like a vibrator with all these notifications rn";
     tmpPost.replies = 64;
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     // sample
     tmpPost = PostModel();
-    tmpPost.avatarImage = NetworkImage("https://avatars.githubusercontent.com/u/114986775?v=4");
+    tmpPost.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
     tmpPost.userName = "똘배";
     tmpPost.postStr = "RC 트라이얼 및 등산 다녀왔는데 날씨 정말 정말 정말 춥네요.";
     tmpPost.replies = 4;
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
     // sample
     tmpPost = PostModel();
-    tmpPost.avatarImage = NetworkImage("https://avatars.githubusercontent.com/u/114986775?v=4");
+    tmpPost.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
     tmpPost.userName = "똘배";
     tmpPost.postStr = "늦은 가을의 캠핑과 새로운 어항 세팅";
     tmpPost.replies = 5;

@@ -18,7 +18,7 @@ class _NewThreadState extends State<NewThread> {
   String _threadText = "";
 
   void CreatePostInfo() {
-    _postInfo.avatarImage = NetworkImage("https://avatars.githubusercontent.com/u/114986775?v=4");
+    _postInfo.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
     _postInfo.userName = "똘배";
   }
 

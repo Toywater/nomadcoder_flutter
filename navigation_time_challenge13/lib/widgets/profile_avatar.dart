@@ -1,17 +1,89 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:navigation_time_challenge12/constants/sizes.dart';
+import 'package:navigation_time_challenge12/models/activity_model.dart';
 import 'package:navigation_time_challenge12/models/post_model.dart';
+import 'dart:math' as math;
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({super.key, required this.postInfo});
+  const ProfileAvatar({
+    super.key,
+    this.postInfo,
+    this.activityInfo,
+  });
 
-  final PostModel postInfo;
+  final PostModel? postInfo;
+  final ActivityModel? activityInfo;
+
+  // 아바타 URL 리턴
+  String getAvatarUrl() {
+    if (postInfo != null) {
+      return postInfo!.avatarUrl;
+    } else if (activityInfo != null) {
+      return activityInfo!.avatarUrl;
+    } else {
+      return "";
+    }
+  }
+
+  // 하단 아이콘 색색
+  Color getSubIconColor() {
+    Color retColor = Colors.black;
+
+    if (postInfo != null) {
+      retColor = Colors.black;
+    } else if (activityInfo != null) {
+      switch (activityInfo!.activityMode) {
+        case ActivityMode.replies:
+          retColor = Colors.lightBlueAccent;
+          break;
+        case ActivityMode.mentions:
+          retColor = Colors.green;
+          break;
+        case ActivityMode.verified:
+          retColor = Colors.pink;
+          break;
+        case ActivityMode.following:
+          retColor = Colors.deepPurple;
+          break;
+      }
+    }
+
+    return retColor;
+  }
+
+  // 하단 아이콘 종류
+  FaIcon? getSubIcon() {
+    FaIcon? retIcon;
+
+    if (postInfo != null) {
+      retIcon = FaIcon(FontAwesomeIcons.threads, color: Colors.white, size: Sizes.size12);
+    } else if (activityInfo != null) {
+      switch (activityInfo!.activityMode) {
+        case ActivityMode.replies:
+          retIcon = FaIcon(FontAwesomeIcons.reply, color: Colors.white, size: Sizes.size12);
+          break;
+        case ActivityMode.mentions:
+          retIcon = FaIcon(FontAwesomeIcons.threads, color: Colors.white, size: Sizes.size12);
+          break;
+        case ActivityMode.verified:
+          retIcon = FaIcon(FontAwesomeIcons.solidHeart, color: Colors.white, size: Sizes.size12);
+          break;
+        case ActivityMode.following:
+          retIcon = FaIcon(FontAwesomeIcons.solidUser, color: Colors.white, size: Sizes.size12);
+          break;
+      }
+    }
+
+    return retIcon;
+  }
 
   @override
   Widget build(BuildContext context) {
+    AssertionError(postInfo == null && activityInfo == null);
+
     return SizedBox(
-      width: Sizes.size48,
+      width: Sizes.size56,
       height: Sizes.size48,
       child: Stack(
         children: [
@@ -20,8 +92,8 @@ class ProfileAvatar extends StatelessWidget {
             left: 0,
             child: CircleAvatar(
               radius: Sizes.size24,
-              backgroundColor: Colors.lightBlueAccent,
-              backgroundImage: postInfo.avatarImage,
+              backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt()),
+              backgroundImage: NetworkImage(getAvatarUrl()),
             ),
           ),
           Positioned(
@@ -33,15 +105,11 @@ class ProfileAvatar extends StatelessWidget {
               height: 22,
               padding: EdgeInsets.all(Sizes.size2),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: getSubIconColor(),
                 borderRadius: BorderRadius.circular(Sizes.size10),
                 border: Border.all(color: Colors.white, width: Sizes.size2),
               ),
-              child: FaIcon(
-                FontAwesomeIcons.plus,
-                color: Colors.white,
-                size: Sizes.size12,
-              ),
+              child: getSubIcon(),
             ),
           )
         ],
