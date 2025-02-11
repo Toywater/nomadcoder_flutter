@@ -13,7 +13,7 @@ class ProfilePhotos extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.5,
       child: ListView.separated(
-        itemCount: postInfo.postImagesUrl.length,
+        itemCount: postInfo.postImagesUrl != null ? postInfo.postImagesUrl!.length : 0,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => Gaps.h10,
         itemBuilder: (context, imgIdx) {
@@ -22,7 +22,7 @@ class ProfilePhotos extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Sizes.size10),
             ),
-            child: Image.asset(postInfo.postImagesUrl[imgIdx], fit: BoxFit.cover),
+            child: Image.asset(postInfo.postImagesUrl![imgIdx], fit: BoxFit.cover),
           );
         },
       ),

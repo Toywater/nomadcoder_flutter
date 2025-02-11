@@ -21,54 +21,66 @@ class _SearchScreenState extends State<SearchScreen> {
 
   // #region [ Member methods]
   void createSampleData() {
-    var tmpInfo = PostModel();
-    tmpInfo.userName = "rjmithun";
-    tmpInfo.postStr = "Mithun";
-    tmpInfo.followers = 26632;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
+    _postList.add(
+      PostModel(
+        userName: "rjmithun",
+        postStr: "Mithun",
+        followers: 26632,
+        postChecked: true,
+      ),
+    );
 
-    tmpInfo = PostModel();
-    tmpInfo.userName = "vicenews";
-    tmpInfo.postStr = "VICE News";
-    tmpInfo.followers = 301623;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
+    _postList.add(
+      PostModel(
+        userName: "vicenews",
+        postStr: "VICE News",
+        followers: 301623,
+        postChecked: true,
+      ),
+    );
 
-    tmpInfo = PostModel();
-    tmpInfo.userName = "trevornoah";
-    tmpInfo.postStr = "Trevor Noah";
-    tmpInfo.followers = 789325;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
+    _postList.add(
+      PostModel(
+        userName: "trevornoah",
+        postStr: "Trevor Noah",
+        followers: 789325,
+        postChecked: true,
+      ),
+    );
 
-    tmpInfo = PostModel();
-    tmpInfo.userName = "condenasttraveller";
-    tmpInfo.postStr = "Conde Nast Traveller";
-    tmpInfo.followers = 130995;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
+    _postList.add(
+      PostModel(
+        userName: "condenasttraveller",
+        postStr: "Conde Nast Traveller",
+        followers: 130995,
+        postChecked: true,
+      ),
+    );
 
-    tmpInfo = PostModel();
-    tmpInfo.userName = "chef_pillai";
-    tmpInfo.postStr = "Suresh Pillai";
-    tmpInfo.followers = 69253;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
-
-    tmpInfo = PostModel();
-    tmpInfo.userName = "malala";
-    tmpInfo.postStr = "Malala Yousafzai";
-    tmpInfo.followers = 237603;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
-
-    tmpInfo = PostModel();
-    tmpInfo.userName = "sebin_cyriac";
-    tmpInfo.postStr = "Fishing_freaks";
-    tmpInfo.followers = 53289;
-    tmpInfo.postChecked = true;
-    _postList.add(tmpInfo);
+    _postList.add(
+      PostModel(
+        userName: "chef_pillai",
+        postStr: "Suresh Pillai",
+        followers: 69253,
+        postChecked: true,
+      ),
+    );
+    _postList.add(
+      PostModel(
+        userName: "malala",
+        postStr: "Malala Yousafzai",
+        followers: 237603,
+        postChecked: true,
+      ),
+    );
+    _postList.add(
+      PostModel(
+        userName: "sebin_cyriac",
+        postStr: "Fishing_freaks",
+        followers: 53289,
+        postChecked: true,
+      ),
+    );
   }
 
   String numberFormat(int n) {

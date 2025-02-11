@@ -36,8 +36,8 @@ class ProfileName extends StatelessWidget {
           ),
         Spacer(),
         // 포스팅 시간에서 현재 시간을 뺀다.
-        Text(postTime, style: TextStyle(fontSize: Sizes.size16, color: Colors.grey)),
-        IconButton(onPressed: () => ellipseClick(), icon: FaIcon(FontAwesomeIcons.ellipsis)),
+        if (postInfo.visiblePostTime) Text(postTime, style: TextStyle(fontSize: Sizes.size16, color: Colors.grey)),
+        if (postInfo.visibleEllipse) IconButton(onPressed: () => ellipseClick(), icon: FaIcon(FontAwesomeIcons.ellipsis)),
       ],
     );
   }

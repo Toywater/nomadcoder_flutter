@@ -13,19 +13,15 @@ class NewThread extends StatefulWidget {
 }
 
 class _NewThreadState extends State<NewThread> {
-  final PostModel _postInfo = PostModel();
+  final PostModel _postInfo = PostModel(
+    avatarUrl: "https://avatars.githubusercontent.com/u/114986775?v=4",
+    userName: "똘배",
+  );
   final TextEditingController _textEditingController = TextEditingController();
   String _threadText = "";
 
-  void CreatePostInfo() {
-    _postInfo.avatarUrl = "https://avatars.githubusercontent.com/u/114986775?v=4";
-    _postInfo.userName = "똘배";
-  }
-
   @override
   void initState() {
-    CreatePostInfo();
-
     super.initState();
 
     _textEditingController.addListener(() {

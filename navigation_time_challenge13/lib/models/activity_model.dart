@@ -1,12 +1,21 @@
 import 'dart:core';
 
-enum ActivityMode { replies, mentions, verified, following }
+enum ActivityMode { none, replies, mentions, verified, following }
 
 class ActivityModel {
-  String avatarUrl = "";
-  String userName = "";
-  String activeStr = "";
-  String dispStr = "";
-  DateTime postTime = DateTime.now();
-  ActivityMode activityMode = ActivityMode.replies;
+  ActivityModel({
+    this.avatarUrl = "",
+    this.userName = "",
+    this.activeStr = "",
+    this.dispStr = "",
+    DateTime? postTime,
+    this.activityMode = ActivityMode.none,
+  }) : postTime = postTime ?? DateTime.now();
+
+  final String avatarUrl;
+  final String userName;
+  final String activeStr;
+  final String dispStr;
+  final DateTime postTime;
+  final ActivityMode activityMode;
 }

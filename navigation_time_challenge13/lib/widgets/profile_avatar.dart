@@ -10,10 +10,12 @@ class ProfileAvatar extends StatelessWidget {
     super.key,
     this.postInfo,
     this.activityInfo,
+    this.isSimpleView = false,
   });
 
   final PostModel? postInfo;
   final ActivityModel? activityInfo;
+  final bool isSimpleView;
 
   // 아바타 URL 리턴
   String getAvatarUrl() {
@@ -30,9 +32,7 @@ class ProfileAvatar extends StatelessWidget {
   Color getSubIconColor() {
     Color retColor = Colors.black;
 
-    if (postInfo != null) {
-      retColor = Colors.black;
-    } else if (activityInfo != null) {
+    if (activityInfo != null) {
       switch (activityInfo!.activityMode) {
         case ActivityMode.replies:
           retColor = Colors.lightBlueAccent;
@@ -46,6 +46,9 @@ class ProfileAvatar extends StatelessWidget {
         case ActivityMode.following:
           retColor = Colors.deepPurple;
           break;
+        case ActivityMode.none:
+          retColor = Colors.transparent;
+          break;
       }
     }
 
@@ -54,11 +57,9 @@ class ProfileAvatar extends StatelessWidget {
 
   // 하단 아이콘 종류
   FaIcon? getSubIcon() {
-    FaIcon? retIcon;
+    FaIcon? retIcon = FaIcon(FontAwesomeIcons.threads, color: Colors.white, size: Sizes.size12);
 
-    if (postInfo != null) {
-      retIcon = FaIcon(FontAwesomeIcons.threads, color: Colors.white, size: Sizes.size12);
-    } else if (activityInfo != null) {
+    if (activityInfo != null) {
       switch (activityInfo!.activityMode) {
         case ActivityMode.replies:
           retIcon = FaIcon(FontAwesomeIcons.reply, color: Colors.white, size: Sizes.size12);
@@ -71,6 +72,9 @@ class ProfileAvatar extends StatelessWidget {
           break;
         case ActivityMode.following:
           retIcon = FaIcon(FontAwesomeIcons.solidUser, color: Colors.white, size: Sizes.size12);
+          break;
+        case ActivityMode.none:
+          retIcon = null;
           break;
       }
     }
@@ -91,27 +95,28 @@ class ProfileAvatar extends StatelessWidget {
             top: 0,
             left: 0,
             child: CircleAvatar(
-              radius: Sizes.size24,
+              radius: isSimpleView ? Sizes.size14 : Sizes.size24,
               backgroundColor: Color((math.Random().nextDouble() * 0xFFFFFF).toInt()),
               backgroundImage: NetworkImage(getAvatarUrl()),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Container(
-              alignment: Alignment.center,
-              width: 22,
-              height: 22,
-              padding: EdgeInsets.all(Sizes.size2),
-              decoration: BoxDecoration(
-                color: getSubIconColor(),
-                borderRadius: BorderRadius.circular(Sizes.size10),
-                border: Border.all(color: Colors.white, width: Sizes.size2),
+          if (isSimpleView == false)
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Container(
+                alignment: Alignment.center,
+                width: 22,
+                height: 22,
+                padding: EdgeInsets.all(Sizes.size2),
+                decoration: BoxDecoration(
+                  color: getSubIconColor(),
+                  borderRadius: BorderRadius.circular(Sizes.size10),
+                  border: Border.all(color: Colors.white, width: Sizes.size2),
+                ),
+                child: getSubIcon(),
               ),
-              child: getSubIcon(),
-            ),
-          )
+            )
         ],
       ),
     );

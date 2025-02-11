@@ -22,50 +22,60 @@ class _ActivityScreenState extends State<ActivityScreen> with SingleTickerProvid
 
   // #region [ Member methods ]
   void createSampleData() {
-    var tmpInfo = ActivityModel();
-    tmpInfo.avatarUrl = 'https://i.pravatar.cc/150?img=1';
-    tmpInfo.userName = "john_mobbin";
-    tmpInfo.activeStr = "Mentioned you";
-    tmpInfo.dispStr = "Here's a thread you should follow if you love botany @jane_mobbin";
-    tmpInfo.activityMode = ActivityMode.mentions;
-    tmpInfo.postTime = DateTime.now().add(Duration(hours: -4));
-    _activityList.add(tmpInfo);
+    _activityList.add(
+      ActivityModel(
+        avatarUrl: 'https://i.pravatar.cc/150?img=1',
+        userName: "john_mobbin",
+        activeStr: "Mentioned you",
+        dispStr: "Here's a thread you should follow if you love botany @jane_mobbin",
+        activityMode: ActivityMode.mentions,
+        postTime: DateTime.now().add(Duration(hours: -4)),
+      ),
+    );
 
-    tmpInfo = ActivityModel();
-    tmpInfo.avatarUrl = 'https://i.pravatar.cc/150?img=1';
-    tmpInfo.userName = "john_mobbin";
-    tmpInfo.activeStr = "Starting out my gardening club with thread.";
-    tmpInfo.dispStr = "Count me in!";
-    tmpInfo.activityMode = ActivityMode.replies;
-    tmpInfo.postTime = DateTime.now().add(Duration(hours: -4));
-    _activityList.add(tmpInfo);
+    _activityList.add(
+      ActivityModel(
+        avatarUrl: 'https://i.pravatar.cc/150?img=1',
+        userName: "john_mobbin",
+        activeStr: "Starting out my gardening club with thread.",
+        dispStr: "Count me in!",
+        activityMode: ActivityMode.replies,
+        postTime: DateTime.now().add(Duration(hours: -4)),
+      ),
+    );
 
-    tmpInfo = ActivityModel();
-    tmpInfo.avatarUrl = 'https://i.pravatar.cc/150?img=2';
-    tmpInfo.userName = "the.plantdads";
-    tmpInfo.activeStr = "Followed you";
-    tmpInfo.dispStr = "";
-    tmpInfo.activityMode = ActivityMode.following;
-    tmpInfo.postTime = DateTime.now().add(Duration(hours: -5));
-    _activityList.add(tmpInfo);
+    _activityList.add(
+      ActivityModel(
+        avatarUrl: 'https://i.pravatar.cc/150?img=2',
+        userName: "the.plantdads",
+        activeStr: "Followed you",
+        dispStr: "",
+        activityMode: ActivityMode.following,
+        postTime: DateTime.now().add(Duration(hours: -5)),
+      ),
+    );
 
-    tmpInfo = ActivityModel();
-    tmpInfo.avatarUrl = 'https://i.pravatar.cc/150?img=2';
-    tmpInfo.userName = "the.plantdads";
-    tmpInfo.activeStr = "Definitely broken!🐳🐨🧐";
-    tmpInfo.dispStr = "";
-    tmpInfo.activityMode = ActivityMode.verified;
-    tmpInfo.postTime = DateTime.now().add(Duration(hours: -5));
-    _activityList.add(tmpInfo);
+    _activityList.add(
+      ActivityModel(
+        avatarUrl: 'https://i.pravatar.cc/150?img=2',
+        userName: "the.plantdads",
+        activeStr: "Definitely broken!🐳🐨🧐",
+        dispStr: "",
+        activityMode: ActivityMode.verified,
+        postTime: DateTime.now().add(Duration(hours: -5)),
+      ),
+    );
 
-    tmpInfo = ActivityModel();
-    tmpInfo.avatarUrl = 'https://i.pravatar.cc/150?img=3';
-    tmpInfo.userName = "theberryjungle";
-    tmpInfo.activeStr = "🐳🐨🧐";
-    tmpInfo.dispStr = "";
-    tmpInfo.activityMode = ActivityMode.verified;
-    tmpInfo.postTime = DateTime.now().add(Duration(hours: -5));
-    _activityList.add(tmpInfo);
+    _activityList.add(
+      ActivityModel(
+        avatarUrl: 'https://i.pravatar.cc/150?img=3',
+        userName: "theberryjungle",
+        activeStr: "🐳🐨🧐",
+        dispStr: "",
+        activityMode: ActivityMode.verified,
+        postTime: DateTime.now().add(Duration(hours: -5)),
+      ),
+    );
 
     _selectedList.addAll(_activityList);
   }

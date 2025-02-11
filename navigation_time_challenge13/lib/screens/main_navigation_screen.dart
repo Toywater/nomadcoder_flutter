@@ -4,6 +4,7 @@ import 'package:navigation_time_challenge12/constants/sizes.dart';
 import 'package:navigation_time_challenge12/screens/activity_screen.dart';
 import 'package:navigation_time_challenge12/screens/home_screen.dart';
 import 'package:navigation_time_challenge12/screens/search_screen.dart';
+import 'package:navigation_time_challenge12/screens/user_screen.dart';
 import 'package:navigation_time_challenge12/widgets/nav_tap.dart';
 import 'package:navigation_time_challenge12/widgets/new_thread.dart';
 
@@ -16,7 +17,7 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> with SingleTickerProviderStateMixin {
   // #region [ Member variables ]
-  int _currentScreenIndex = 0;
+  int _currentScreenIndex = 4;
   late final AnimationController _animationController;
   late final Animation<Offset> _activityPanelAnimation;
   late final Animation<Color?> _barrierAnimation;
@@ -74,6 +75,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
     return Stack(
       children: [
         Scaffold(
+          backgroundColor: Colors.white,
           resizeToAvoidBottomInset: false,
           body: Stack(
             children: [
@@ -96,7 +98,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
               Offstage(
                 offstage: _currentScreenIndex != 4,
                 child: Center(
-                  child: Scaffold(),
+                  child: UserScreen(),
                 ),
               ),
             ],

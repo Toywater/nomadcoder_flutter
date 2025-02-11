@@ -1,13 +1,33 @@
 import 'dart:core';
 
 class PostModel {
-  String avatarUrl = "";
-  String userName = "";
-  String postStr = "";
-  int replies = 0;
-  int likes = 0;
-  int followers = 0;
-  bool postChecked = false;
-  DateTime postTime = DateTime.now();
-  List<String> postImagesUrl = [];
+  PostModel({
+    this.avatarUrl = "",
+    this.userName = "",
+    this.postStr = "",
+    this.replies = 0,
+    this.likes = 0,
+    this.followers = 0,
+    this.postChecked = false,
+    this.postImagesUrl,
+    DateTime? postTime,
+    this.tagPostInfo,
+    this.replyPostInfo,
+    this.visibleEllipse = true,
+    this.visiblePostTime = true,
+  }) : postTime = postTime ?? DateTime.now();
+
+  final String avatarUrl; // = "";
+  final String userName; // = "";
+  final String postStr; // = "";
+  final int replies; // = 0;
+  final int likes; // = 0;
+  final int followers; // = 0;
+  final bool postChecked; // = false;
+  final DateTime postTime; // = DateTime.now();
+  final List<String>? postImagesUrl; // = [];
+  final PostModel? tagPostInfo; //;
+  final PostModel? replyPostInfo; //;
+  final bool visiblePostTime;
+  final bool visibleEllipse;
 }
