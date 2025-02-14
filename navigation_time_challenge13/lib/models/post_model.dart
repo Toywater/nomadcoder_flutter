@@ -25,7 +25,7 @@ class PostModel {
   final int followers; // = 0;
   final bool postChecked; // = false;
   final DateTime postTime; // = DateTime.now();
-  final List<String>? postImagesUrl; // = [];
+  List<String>? postImagesUrl; // = [];
   final PostModel? tagPostInfo; //;
   final PostModel? replyPostInfo; //;
   final bool visiblePostTime;

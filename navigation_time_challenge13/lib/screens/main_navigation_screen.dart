@@ -152,7 +152,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
           child: SlideTransition(
             position: _activityPanelAnimation,
             // Unfollow, hide, report...
-            child: NewThread(),
+            child: NewThread(
+              onCancel: _changePanelState,
+            ),
           ),
         )
       ],
