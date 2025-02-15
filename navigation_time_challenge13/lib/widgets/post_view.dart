@@ -56,7 +56,11 @@ class PostView extends StatelessWidget {
                           ellipseTap?.call(postInfo);
                         }),
                     // 포스팅 내용
-                    Text(postInfo.postStr, style: TextStyle(fontSize: Sizes.size16, color: Colors.black)),
+                    Text(
+                      postInfo.postStr,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      // style: TextStyle(fontSize: Sizes.size16, color: Colors.black),
+                    ),
 
                     // #region [ Tag post ]
                     // 태그 된 포스트는 간단하게 표시
@@ -81,7 +85,7 @@ class PostView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Text(postInfo.tagPostInfo!.postStr, style: TextStyle(fontSize: Sizes.size16, color: Colors.black)),
+                            Text(postInfo.tagPostInfo!.postStr, style: TextStyle(fontSize: Sizes.size16)),
                             // 사진
                             if (postInfo.tagPostInfo!.postImagesUrl != null) ProfilePhotos(postInfo: postInfo.tagPostInfo!),
                             // 챗, 공유 등의 아이콘

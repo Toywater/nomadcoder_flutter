@@ -132,13 +132,17 @@ class _ActivityScreenState extends State<ActivityScreen> with SingleTickerProvid
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        titleTextStyle: TextStyle(fontSize: Sizes.size32, fontWeight: FontWeight.bold, color: Colors.black),
+        // surfaceTintColor: Colors.transparent,
+        // backgroundColor: Colors.white,
+        titleTextStyle: TextStyle(
+          fontSize: Sizes.size32,
+          fontWeight: FontWeight.bold,
+          color: Theme.of(context).textTheme.titleLarge?.color,
+        ),
         toolbarHeight: 60,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,14 +161,14 @@ class _ActivityScreenState extends State<ActivityScreen> with SingleTickerProvid
             dividerHeight: 0,
             isScrollable: true,
             splashFactory: NoSplash.splashFactory,
-            labelColor: Colors.white,
+            // labelColor: Colors.white,
             labelStyle: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600),
-            unselectedLabelColor: Colors.black,
-            unselectedLabelStyle: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600),
+            // unselectedLabelColor: Colors.black,
+            // unselectedLabelStyle: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600),
             indicator: BoxDecoration(
               borderRadius: BorderRadius.circular(Sizes.size10),
               border: Border.all(color: Colors.grey, strokeAlign: Sizes.size1),
-              color: Colors.black,
+              // color: Colors.black,
             ),
             tabs: [
               for (var tapName in _tabNames)
@@ -179,7 +183,11 @@ class _ActivityScreenState extends State<ActivityScreen> with SingleTickerProvid
           // Tile list
           Expanded(
             child: ListView.separated(
-              separatorBuilder: (context, index) => Divider(color: Colors.grey.shade300, height: Sizes.size24, thickness: Sizes.size1),
+              separatorBuilder: (context, index) => Divider(
+                // color: Colors.grey.shade300,
+                height: Sizes.size24,
+                thickness: Sizes.size1,
+              ),
               itemCount: _selectedList.length,
               itemBuilder: (context, index) {
                 // 포스팅 시간 차 구하기

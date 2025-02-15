@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:navigation_time_challenge12/constants/gaps.dart';
+import 'package:navigation_time_challenge12/constants/sizes.dart';
 
 class NavTap extends StatelessWidget {
   const NavTap({
@@ -31,9 +31,18 @@ class NavTap extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FaIcon(icon, color: isSelected ? Colors.black : Colors.grey.shade600),
+                Icon(
+                  icon,
+                  size: Sizes.size32,
+                ),
                 if (visibleText) Gaps.v5,
-                if (visibleText) Text(text, style: TextStyle(color: isSelected ? Colors.black : Colors.grey.shade600)),
+                if (visibleText)
+                  Text(
+                    text,
+                    // style: TextStyle(
+                    //   color: isSelected ? Colors.black : Colors.grey.shade600,
+                    // ),
+                  ),
               ],
             ),
           ),

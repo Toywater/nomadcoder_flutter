@@ -133,7 +133,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ListView.separated(
             padding: EdgeInsets.symmetric(horizontal: Sizes.size16, vertical: Sizes.size24),
             itemCount: _postList.length,
-            separatorBuilder: (context, index) => Divider(color: Colors.grey.shade300, height: Sizes.size24, thickness: Sizes.size1),
+            separatorBuilder: (context, index) => Divider(
+              // color: Colors.grey.shade300,
+              height: Sizes.size24,
+              thickness: Sizes.size1,
+            ),
             itemBuilder: (context, index) {
               return PostView(postInfo: _postList[index], ellipseTap: ellipseClick);
             },

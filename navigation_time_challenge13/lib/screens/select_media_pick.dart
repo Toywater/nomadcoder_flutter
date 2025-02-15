@@ -33,29 +33,31 @@ class _SelectMediaPickState extends State<SelectMediaPick> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
+        // foregroundColor: Colors.white,
+        // backgroundColor: Colors.black,
         title: Text("Select camera or gallery image"),
       ),
       body: Container(
-        color: Colors.black,
+        // color: Colors.black,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // 카메라 선택 버튼
-              ElevatedButton(
-                  onPressed: () {
-                    getImage(context, ImageSource.camera);
-                  },
-                  child: const Text("Camera")),
+              OutlinedButton(
+                onPressed: () {
+                  getImage(context, ImageSource.camera);
+                },
+                child: const Text("Camera"),
+              ),
               Padding(padding: EdgeInsets.all(10)),
               // 앨범 선택
-              ElevatedButton(
-                  onPressed: () {
-                    getImage(context, ImageSource.gallery);
-                  },
-                  child: Text("Gallery")),
+              OutlinedButton(
+                onPressed: () {
+                  getImage(context, ImageSource.gallery);
+                },
+                child: Text("Gallery"),
+              ),
               Gaps.v40,
             ],
           ),

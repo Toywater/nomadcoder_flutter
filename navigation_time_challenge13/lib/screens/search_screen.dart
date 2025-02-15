@@ -140,12 +140,16 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        titleTextStyle: TextStyle(fontSize: Sizes.size32, fontWeight: FontWeight.bold, color: Colors.black),
+        // surfaceTintColor: Colors.transparent,
+        // backgroundColor: Colors.white,
+        titleTextStyle: TextStyle(
+          fontSize: Sizes.size32,
+          fontWeight: FontWeight.bold,
+          color: Theme.of(context).textTheme.titleLarge?.color,
+        ),
         toolbarHeight: 100,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,14 +163,14 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
       body: ListView.separated(
-        separatorBuilder: (context, index) => Divider(color: Colors.grey.shade300, height: Sizes.size24, thickness: Sizes.size1),
+        separatorBuilder: (context, index) => Divider(height: Sizes.size24, thickness: Sizes.size1),
         itemCount: _searchList.length,
         itemBuilder: (context, index) {
           return ListTile(
             // 아바타
             leading: CircleAvatar(
               radius: Sizes.size24,
-              backgroundColor: Colors.transparent,
+              // backgroundColor: Colors.transparent,
               backgroundImage: _searchList[index].avatarUrl.isEmpty ? NetworkImage('https://i.pravatar.cc/150?img=$index') : NetworkImage(_searchList[index].avatarUrl),
             ),
             title: Row(
@@ -193,7 +197,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 Text(_searchList[index].postStr),
                 Text(
                   "${numberFormat(_searchList[index].followers)} followers",
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodySmall?.color, // Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ],
             ),
@@ -205,11 +212,18 @@ class _SearchScreenState extends State<SearchScreen> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Sizes.size10),
-                  border: Border.all(color: Colors.grey, strokeAlign: Sizes.size1),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.outline, // Colors.grey,
+                    strokeAlign: Sizes.size1,
+                  ),
                 ),
                 child: Text(
                   "Follow",
-                  style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w900, color: Colors.black),
+                  style: TextStyle(
+                    fontSize: Sizes.size16,
+                    fontWeight: FontWeight.w900,
+                    // color: Colors.black,
+                  ),
                 ),
               ),
             ),

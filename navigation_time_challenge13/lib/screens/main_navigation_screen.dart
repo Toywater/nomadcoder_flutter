@@ -75,7 +75,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
     return Stack(
       children: [
         Scaffold(
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           resizeToAvoidBottomInset: false,
           body: Stack(
             children: [
@@ -104,39 +104,38 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> with Single
             ],
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: Sizes.size1),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   NavTap(
-                    icon: FontAwesomeIcons.houseChimney,
+                    icon: Icons.home_outlined, //FontAwesomeIcons.houseChimney,
                     isSelected: _currentScreenIndex == 0,
                     text: "Home",
                     onTap: () => _onTap(0),
                   ),
                   NavTap(
                     onTap: () => _onTap(1),
-                    icon: FontAwesomeIcons.magnifyingGlass,
+                    icon: Icons.search, // FontAwesomeIcons.magnifyingGlass,
                     isSelected: _currentScreenIndex == 1,
                     text: "Discover",
                   ),
                   NavTap(
                     onTap: () => _onTap(2),
-                    icon: FontAwesomeIcons.penToSquare,
+                    icon: Icons.edit_note_outlined, //FontAwesomeIcons.penToSquare,
                     isSelected: _currentScreenIndex == 2,
                     text: "Write",
                   ),
                   NavTap(
                     onTap: () => _onTap(3),
-                    icon: FontAwesomeIcons.heart,
+                    icon: Icons.favorite_outline, // FontAwesomeIcons.heart,
                     isSelected: _currentScreenIndex == 3,
                     text: "Activity",
                   ),
                   NavTap(
                     onTap: () => _onTap(4),
-                    icon: FontAwesomeIcons.user,
+                    icon: Icons.person_outline, //  FontAwesomeIcons.user,
                     isSelected: _currentScreenIndex == 4,
                     text: "Profile",
                   ),

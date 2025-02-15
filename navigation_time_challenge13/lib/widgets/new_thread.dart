@@ -59,33 +59,52 @@ class _NewThreadState extends State<NewThread> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.95,
-      padding: EdgeInsets.symmetric(horizontal: Sizes.size18, vertical: Sizes.size14),
+      // padding: EdgeInsets.symmetric(horizontal: Sizes.size18, vertical: Sizes.size14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(Sizes.size20), topRight: Radius.circular(Sizes.size20)),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           elevation: 1,
           surfaceTintColor: Colors.transparent,
           centerTitle: true,
-          title: Text("New thread", style: TextStyle(fontSize: Sizes.size20, fontWeight: FontWeight.bold)),
+          title: Text(
+            "New thread",
+            style: TextStyle(
+              fontSize: Sizes.size20,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).textTheme.titleLarge?.color,
+            ),
+          ),
           leadingWidth: 100,
           leading: TextButton(
             onPressed: () {
               // Navigator.of(context).pop();
               widget.onCancel();
             },
-            child: Text("Cancel", style: TextStyle(fontSize: Sizes.size20, fontWeight: FontWeight.w400, color: Colors.black)),
+            child: Text(
+              "Cancel",
+              style: TextStyle(
+                fontSize: Sizes.size20,
+                fontWeight: FontWeight.w400,
+                // color: Colors.black,
+              ),
+            ),
           ),
-          shape: Border(bottom: BorderSide(color: Colors.grey.shade300, width: Sizes.size1)),
+          shape: Border(
+            bottom: BorderSide(
+              color: Colors.grey.shade300,
+              width: Sizes.size1,
+            ),
+          ),
         ),
         body: Expanded(
           child: Padding(
-            padding: EdgeInsets.only(top: Sizes.size20),
+            padding: EdgeInsets.only(top: Sizes.size20, left: Sizes.size10, right: Sizes.size10),
             child: Column(
               children: [
                 Row(

@@ -58,7 +58,8 @@ class _EllipseMenusState extends State<EllipseMenus> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: Sizes.size16, vertical: Sizes.size14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
+        color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(Sizes.size20), topRight: Radius.circular(Sizes.size20)),
       ),
       child: Column(
@@ -71,14 +72,14 @@ class _EllipseMenusState extends State<EllipseMenus> {
             child: Container(
               padding: EdgeInsets.symmetric(vertical: Sizes.size16, horizontal: Sizes.size20),
               decoration: BoxDecoration(
-                color: Colors.grey.shade100,
+                // color: Colors.grey.shade100,
+                color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(Sizes.size24), topRight: Radius.circular(Sizes.size24)),
               ),
               child: Row(children: [Text("Unfollow", style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600))]),
             ),
           ),
           Divider(
-            color: Colors.grey.shade300,
             thickness: Sizes.size1,
             height: 0,
           ),
@@ -88,7 +89,8 @@ class _EllipseMenusState extends State<EllipseMenus> {
             child: Container(
                 padding: EdgeInsets.symmetric(vertical: Sizes.size16, horizontal: Sizes.size20),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  // color: Colors.grey.shade100,
+                  color: Theme.of(context).canvasColor,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(Sizes.size24), bottomRight: Radius.circular(Sizes.size24)),
                 ),
                 child: Row(children: [Text("Mute", style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600))])),
@@ -100,7 +102,8 @@ class _EllipseMenusState extends State<EllipseMenus> {
             child: Container(
               padding: EdgeInsets.symmetric(vertical: Sizes.size16, horizontal: Sizes.size20),
               decoration: BoxDecoration(
-                color: Colors.grey.shade100,
+                // color: Colors.grey.shade100,
+                color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(Sizes.size24), topRight: Radius.circular(Sizes.size24)),
               ),
               child: Row(children: [Text("Hide", style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600))]),
@@ -108,7 +111,6 @@ class _EllipseMenusState extends State<EllipseMenus> {
           ),
           // Report
           Divider(
-            color: Colors.grey.shade300,
             thickness: Sizes.size1,
             height: 0,
           ),
@@ -117,7 +119,8 @@ class _EllipseMenusState extends State<EllipseMenus> {
             child: Container(
                 padding: EdgeInsets.symmetric(vertical: Sizes.size16, horizontal: Sizes.size20),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                  // color: Colors.grey.shade100,
+                  color: Theme.of(context).canvasColor,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(Sizes.size24), bottomRight: Radius.circular(Sizes.size24)),
                 ),
                 child: Row(children: [Text("Report", style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w600))])),
@@ -141,17 +144,22 @@ class _EllipseMenusState extends State<EllipseMenus> {
       height: MediaQuery.of(context).size.height * 0.5,
       padding: EdgeInsets.symmetric(horizontal: Sizes.size18, vertical: Sizes.size14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).canvasColor,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(Sizes.size20), topRight: Radius.circular(Sizes.size20)),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         appBar: AppBar(
           elevation: 0,
           toolbarHeight: Sizes.size20,
           surfaceTintColor: Colors.transparent,
-          backgroundColor: Colors.white,
-          titleTextStyle: TextStyle(fontSize: Sizes.size18, fontWeight: FontWeight.bold, color: Colors.black),
+          // backgroundColor: Colors.white,
+          titleTextStyle: TextStyle(
+            fontSize: Sizes.size18,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).appBarTheme.foregroundColor,
+          ),
+          // titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle?.copyWith(fontWeight: FontWeight.bold),
           centerTitle: true,
           title: Text("Report"),
         ),
@@ -161,14 +169,14 @@ class _EllipseMenusState extends State<EllipseMenus> {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: Sizes.size6,
             children: [
-              Divider(color: Colors.grey.shade200, thickness: 1),
+              Divider(thickness: 1),
               Text("Why are you reporting this thread?", style: TextStyle(fontSize: Sizes.size18, fontWeight: FontWeight.bold)),
               Text(
                 softWrap: true,
                 "Your report is anonymous, except if you're reporting an intellectual property infringement. If someone is in immediate danger, call the local emergency services - don't wait.",
                 style: TextStyle(fontSize: Sizes.size16, color: Colors.grey.shade400),
               ),
-              Divider(color: Colors.grey.shade300, thickness: 1),
+              Divider(thickness: 1),
               Expanded(
                 child: ListView.separated(
                     itemCount: itemList.length,
@@ -191,7 +199,7 @@ class _EllipseMenusState extends State<EllipseMenus> {
                         ),
                       );
                     },
-                    separatorBuilder: (BuildContext context, int index) => Divider(color: Colors.grey.shade300, thickness: 1)),
+                    separatorBuilder: (BuildContext context, int index) => Divider(thickness: 1)),
               ),
             ],
           ),

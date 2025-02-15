@@ -95,6 +95,8 @@ class _UserScreenState extends State<UserScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -102,7 +104,7 @@ class _UserScreenState extends State<UserScreen> {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                backgroundColor: Colors.white,
+                // backgroundColor: Colors.white,
                 actions: [
                   IconButton(onPressed: () {}, icon: FaIcon(FontAwesomeIcons.instagram)),
                   IconButton(
@@ -132,7 +134,10 @@ class _UserScreenState extends State<UserScreen> {
                           children: [
                             Text(
                               "jane_mobbin",
-                              style: TextStyle(fontSize: Sizes.size20, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: Sizes.size20,
+                                // color: Colors.black,
+                              ),
                             ),
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: Sizes.size14, vertical: Sizes.size6),
@@ -140,7 +145,7 @@ class _UserScreenState extends State<UserScreen> {
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(Sizes.size20),
                                 ),
-                                color: Colors.grey.shade200,
+                                color: isDarkMode ? Colors.white24 : Colors.grey.shade200,
                               ),
                               child: Text(
                                 "threads.net",
@@ -191,7 +196,7 @@ class _UserScreenState extends State<UserScreen> {
               ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: Sizes.size16, vertical: Sizes.size24),
                 itemCount: _threads.length,
-                separatorBuilder: (context, index) => Divider(color: Colors.grey.shade300, height: Sizes.size24, thickness: Sizes.size1),
+                separatorBuilder: (context, index) => Divider(height: Sizes.size24, thickness: Sizes.size1),
                 itemBuilder: (context, index) {
                   return PostView(
                     postInfo: _threads[index],
@@ -203,7 +208,7 @@ class _UserScreenState extends State<UserScreen> {
               ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: Sizes.size16, vertical: Sizes.size24),
                 itemCount: _replies.length,
-                separatorBuilder: (context, index) => Divider(color: Colors.grey.shade300, height: Sizes.size24, thickness: Sizes.size1),
+                separatorBuilder: (context, index) => Divider(height: Sizes.size24, thickness: Sizes.size1),
                 itemBuilder: (context, index) {
                   return PostView(
                     postInfo: _replies[index],
