@@ -5,6 +5,7 @@ import 'package:navigation_time_challenge12/constants/sizes.dart';
 
 enum EllipseViewState { selectState, unfollow, mute, hide, report }
 
+// ignore: must_be_immutable
 class EllipseMenus extends StatefulWidget {
   // 화면이 뜰 때마다 선택 화면으로 전환하기 위함
   EllipseMenus({super.key, EllipseViewState viewState = EllipseViewState.selectState}) : _viewState = viewState;

@@ -7,6 +7,9 @@ import 'package:navigation_time_challenge12/widgets/post_view.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  static String routeUrl = "/";
+  static String routeName = "home";
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:navigation_time_challenge12/constants/sizes.dart';
 import 'package:navigation_time_challenge12/models/post_model.dart';
 import 'package:navigation_time_challenge12/screens/user_settings_screen.dart';
@@ -109,7 +110,8 @@ class _UserScreenState extends State<UserScreen> {
                   IconButton(onPressed: () {}, icon: FaIcon(FontAwesomeIcons.instagram)),
                   IconButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => UserSettingsScreen()));
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => UserSettingsScreen()));
+                        context.pushNamed(UserSettingsScreen.routeName);
                       },
                       icon: FaIcon(FontAwesomeIcons.gear)),
                 ],

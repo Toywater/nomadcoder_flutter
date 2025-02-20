@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:navigation_time_challenge12/constants/sizes.dart';
 import 'package:navigation_time_challenge12/screens/activity_screen.dart';
 import 'package:navigation_time_challenge12/screens/home_screen.dart';
@@ -9,7 +9,11 @@ import 'package:navigation_time_challenge12/widgets/nav_tap.dart';
 import 'package:navigation_time_challenge12/widgets/new_thread.dart';
 
 class MainNavigationScreen extends StatefulWidget {
-  const MainNavigationScreen({super.key});
+  const MainNavigationScreen({super.key, required this.tab});
+
+  static String routeUrl = "/:tab(home|search|activity|profile)";
+  static String routeName = "mainNav";
+  final String tab;
 
   @override
   State<MainNavigationScreen> createState() => _MainNavigationScreenState();
@@ -17,18 +21,25 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> with SingleTickerProviderStateMixin {
   // #region [ Member variables ]
-  int _currentScreenIndex = 4;
   late final AnimationController _animationController;
   late final Animation<Offset> _activityPanelAnimation;
   late final Animation<Color?> _barrierAnimation;
   bool _visibleBarrier = false;
+  final List<String> _tabs = [
+    "home",
+    "search",
+    "writeNew",
+    "activity",
+    "profile",
+  ];
+  late int _currentScreenIndex = _tabs.indexOf(widget.tab);
   // #endregion [ Member variables ]
 
   // #region [ Member methods ]
   void _onTap(int screenIndex) {
     // 2번 (New thread)은 슬라이드 화면이므로 화면간 전환은 하지 않음
-
     if (screenIndex != 2) {
+      context.go("/${_tabs[screenIndex]}");
       setState(() {
         _currentScreenIndex = screenIndex;
       });
