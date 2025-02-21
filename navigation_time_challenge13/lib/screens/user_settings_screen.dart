@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:navigation_time_challenge12/constants/sizes.dart';
 import 'package:navigation_time_challenge12/screens/privacy_setting_screen.dart';
 import 'package:navigation_time_challenge12/view_models/user_config_vm.dart';
-import 'package:provider/provider.dart';
 
-class UserSettingsScreen extends StatelessWidget {
+class UserSettingsScreen extends ConsumerWidget {
   const UserSettingsScreen({super.key});
 
   static String routeUrl = "/userSet";
   static String routeName = "userSet";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    final isDarkMode = context.read<UserConfigVM>().isDarkMode;
+    final isDarkMode = ref.read(userConfigProvider).isDarkMode;
 
     return Scaffold(
       appBar: AppBar(
@@ -40,8 +40,8 @@ class UserSettingsScreen extends StatelessWidget {
             titleAlignment: ListTileTitleAlignment.center,
             title: Text("Dark mode"),
             trailing: Switch.adaptive(
-              value: context.watch<UserConfigVM>().isDarkMode,
-              onChanged: (value) => context.read<UserConfigVM>().setIsDarkMode(value),
+              value: ref.watch(userConfigProvider).isDarkMode,
+              onChanged: (value) => ref.read(userConfigProvider.notifier).setIsDarkMode(value),
             ),
           ),
           ListTile(
