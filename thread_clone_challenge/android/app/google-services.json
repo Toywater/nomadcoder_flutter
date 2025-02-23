@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "351946278341",
+    "project_id": "thread-clone-toywater",
+    "storage_bucket": "thread-clone-toywater.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351946278341:android:6fd90e0e8e51152bc977ac",
+        "android_client_info": {
+          "package_name": "com.example.navigation_time_challenge12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXDW90uyJqSMYITxnocdsN4o9t2rGtGsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
